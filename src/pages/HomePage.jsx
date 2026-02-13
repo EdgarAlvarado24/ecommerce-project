@@ -1,8 +1,15 @@
 import { Header } from '../components/Header'
-import { Products } from '../../starting-code/data/products'
+import  { products }  from '../../starting-code/data/products'
 import './HomePage.css';
 
 function HomePage() {
+  fetch('http://localhost:3000/api/products')
+    .then((response)=>{
+      response.json().then((data) =>{
+        console.log(data);
+      })
+    })
+
   return (
     <>
       <link rel="icon" type="image/svg+xml" href="/home-favicon.png" />
@@ -12,7 +19,8 @@ function HomePage() {
 
       <div className="home-page">
         <div className="products-grid">
-          {Products.map((product) => {
+          {products.map((product) => {
+            console.log(product)
             return (
               <>
                 <div key={product.id} className="product-container">
