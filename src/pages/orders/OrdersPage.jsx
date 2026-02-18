@@ -1,10 +1,11 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import { Header } from '../components/Header';
+import { Header } from '../../components/Header';
 import { Link } from 'react-router';
 import './OrdersPage.css';
 import dayjs from 'dayjs';
-import { formatMoney } from '../utils/money';
+import { formatMoney } from '../../utils/money';
+import { Fragment } from 'react';
 
 export function OrdersPage({ cart }) {
   const [orders, setOrders] = useState([]);
@@ -41,13 +42,13 @@ export function OrdersPage({ cart }) {
                       </div>
                       <div className="order-total">
                         <div className="order-header-label">Total:</div>
-                        <div>{formatMoney(orders.totalCostCents)}</div>
+                        <div>{formatMoney(order.totalCostCents)}</div>
                       </div>
                     </div>
 
                     <div className="order-header-right-section">
                       <div className="order-header-label">Order ID:</div>
-                      <div>{orders.id}</div>
+                      <div>{order.id}</div>
                     </div>
                   </div>
 
@@ -62,7 +63,8 @@ export function OrdersPage({ cart }) {
 
                           <div className="product-details">
                             <div className="product-name">
-                              {orderProduct.name}
+                              {console.log(orderProduct)}
+                              {orderProduct.product.name}
                             </div>
                             <div className="product-delivery-date">
                               Arriving on: {dayjs(orderProduct.estimatedDeliveryTimeMs).format('MMMM D')}
