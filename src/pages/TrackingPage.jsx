@@ -34,9 +34,7 @@ export function TrackingPage({ cart }) {
   let totalDeliveryTimeMs = orderProduct.estimatedDeliveryTimeMs - order.orderTimeMs;
   let timePassedMs = dayjs().valueOf() - order.orderTimeMs;
   let deliveryProgressPercent = (timePassedMs / totalDeliveryTimeMs) * 100;
-  console.log('deliveryProgressPercent',deliveryProgressPercent)
   let deliveryPercent = deliveryProgressPercent >= 100 ? 100 : deliveryProgressPercent
-  console.log('deliveryPercent',deliveryPercent)
   let isPreparing;
   let isShipped;
   let isDelivered;
