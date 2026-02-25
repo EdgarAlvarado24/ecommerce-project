@@ -2,7 +2,7 @@ import { NavLink } from "react-router";
 import { OrderHeader } from "./OrderHeader";
 import { OrderDetailsGrid } from "./OrderDatailsGrid";
 
-export function OrdersGrid({ orders }) {
+export function OrdersGrid({ orders, loadCart }) {
   return (
     <>
       <div className="orders-grid">
@@ -13,7 +13,7 @@ export function OrdersGrid({ orders }) {
 
                 <OrderHeader  order={order} />
 
-                <OrderDetailsGrid key={order.id}  order={order} />
+                <OrderDetailsGrid key={order.id}  order={order} loadCart={loadCart} />
               </div>
             </>
           );
