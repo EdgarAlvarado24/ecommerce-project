@@ -4,9 +4,9 @@ export function CartItemDetails({ cartItem, deleteCartItem }) {
 
   return (
     <>
+      <img className="product-image" src={cartItem.product.image} />
+      
       <div className="cart-item-details">
-        <img className="product-image"
-          src={cartItem.product.image} />
 
         <div className="product-name">
           {cartItem.product.name}
